@@ -1,11 +1,9 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
-import { useRecoilValue, useSetRecoilState, SetterOrUpdater } from 'recoil';
 
 import Layout from '@/components/Layout'
 import List from '@/components/List';
 import { User } from '@/types/User';
-import { userListState } from '@/atoms/userListState';
 import { sampleUserList } from '@/utils/sampleUserList';
 
 type Props = {
@@ -13,12 +11,6 @@ type Props = {
 }
 
 const WithStaticProps = ({ items }: Props) => {
-  console.log(useRecoilValue(userListState))
-  const setUserList: SetterOrUpdater<User[]> = useSetRecoilState(
-    userListState,
-  );
-  setUserList(sampleUserList);
-  console.log(useRecoilValue(userListState))
   return (
     <Layout title="Users List | Next.js + TypeScript Example">
       <h1>Users List</h1>

@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
 import { User } from '@/types/User'
-import { sampleUserData } from '@/utils/sample-data'
+import { sampleUserList } from '@/utils/sampleUserList'
 import Layout from '@/components/Layout'
 import ListDetail from '@/components/ListDetail'
 
@@ -36,7 +36,7 @@ export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
-  const paths = sampleUserData.map((user) => ({
+  const paths = sampleUserList.map((user) => ({
     params: { id: user.id.toString() },
   }))
 
@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const id = params?.id
-    const item = sampleUserData.find((data) => data.id === Number(id))
+    const item = sampleUserList.find((data) => data.id === Number(id))
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
     return { props: { item } }
