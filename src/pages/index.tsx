@@ -4,6 +4,7 @@ import { RecoilRoot } from 'recoil';
 
 const IndexPage = () => (
   <RecoilRoot>
+    
     <Layout title="Home | Next.js + TypeScript Example">
       <h1>Hello Next.js 👋</h1>
       <p>
