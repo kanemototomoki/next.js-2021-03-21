@@ -3,6 +3,22 @@
 $ npx create-next-app --use-npm --example with-typescript <projectName>
 ```
 
+# memo
+## useRecoilState
+stateの更新に使う
+```ts
+function useRecoilState<T>(state: RecoilState<T>): [T, SetterOrUpdater<T>];
+
+type SetterOrUpdater<T> = (T | (T => T)) => void;
+```
+
+### useRecoilValue
+stateの取得に使う
+```ts
+function useRecoilValue<T>(state: RecoilValue<T>): T;
+```
+
+
 # TypeScript Next.js example
 
 This is a really simple project that shows the usage of Next.js with TypeScript.
